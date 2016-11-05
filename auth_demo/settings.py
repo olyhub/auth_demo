@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'hello',
+    'accounts',
+    'django_forms_bootstrap',
 ]
 
 MIDDLEWARE = [
