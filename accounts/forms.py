@@ -33,3 +33,7 @@ def save(self, commit=True):
     if commit:
         instance.save()
     return instance
+
+class UserLoginForm(forms.Form):
+    email = forms.EmailField()
+    password = forms.CharField(widget=forms.PasswordInput)
