@@ -6,7 +6,12 @@ from django.core.exceptions import ValidationError
 
 class UserRegistrationForm(UserCreationForm):
     password1 = forms.CharField(
-        label='password',
+        label='Password',
+        widget=forms.PasswordInput
+    )
+
+    password2 = forms.CharField(
+        label='Password Confirmation',
         widget=forms.PasswordInput
     )
 
@@ -23,6 +28,7 @@ def clean_password2(self):
     if password1 and password2 and password1 != password2:
         message = "Passwords do not match"
         raise ValidationError(message)
+
     return password2
 
 def save(self, commit=True):
@@ -32,6 +38,7 @@ def save(self, commit=True):
 
     if commit:
         instance.save()
+
     return instance
 
 class UserLoginForm(forms.Form):
